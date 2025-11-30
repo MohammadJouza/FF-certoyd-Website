@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Service Details - Certoyd</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/Certoyd-icon.png" rel="icon" />
+    <link href="assets/img/Certoyd-icon.png" rel="Certoyd-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Selecao
+  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
+  * Updated: Jul 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body class="service-details-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <img src="./images/Logo.png" alt="Certoyd" />
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="./index.html#hero">Home</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#services" class="active">Services</a></li>
+            <li><a href="./index.html#Regions">Regions</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title dark-background">
+        <div class="container position-relative">
+          <h1>Service Details</h1>
+          <p>
+            Our services cover a wide range of professional solutions designed
+            to meet diverse needs with quality, reliability, and customer
+            satisfaction.
+          </p>
+          <nav class="breadcrumbs">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li class="current">Service Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <!-- End Page Title -->
+
+      <!-- Service Details Section -->
+      <section id="service-details" class="service-details section py-5">
+        <!-- ----------  STYLES  ---------- -->
+        <style>
+          html {
+            scroll-behavior: smooth;
+          }
+
+          /* Sidebar card */
+          .service-box {
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+          }
+          .services-list a {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+          }
+          .services-list i {
+            margin-right: 6px;
+            color: #0d6efd;
+            font-size: 1rem;
+          }
+          .services-list a:hover {
+            color: #0d6efd;
+          }
+
+          /* Help box */
+          .help-box {
+            background: #0d6efd;
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 5px 5px 10px 5px rgb(188, 187, 187);
+
+          }
+          .help-box i {
+            font-size: 2rem;
+          }
+
+          /* Sidebar gallery */
+          .sidebar-gallery img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 5px rgb(134, 133, 133);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            margin: 40% 0;
+          }
+          .sidebar-gallery img:hover {
+            transform: scale(1.03);
+          }
+
+          /* Main column */
+          .service-details h3 {
+            font-size: 1.4rem;
+            margin-top: 2.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            scroll-margin-top: 90px;
+          }
+          .service-details h3.active-highlight {
+            background: #f0f8ff;
+            padding: 0.3rem 0.75rem;
+            border-left: 4px solid #0d6efd;
+            transition: all 0.4s;
+          }
+          .service-details .Ser-Par {
+            font-size: 0.97rem;
+            line-height: 1.7;
+          }
+          .service-details ul {
+            padding-left: 1.3rem;
+          }
+          .service-details ul li {
+            margin-bottom: 0.6rem;
+          }
+
+          /* Extra filler spacing images */
+          .sidebar-gallery img {
+            width: 100%;
+            height: 440px; /* Increased height for better fill */
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px 5px rgb(134, 133, 133);
+            margin: 1.5rem 0; /* More breathing room without excess */
+            transition: transform 0.3s ease;
+          }
+          .sidebar-gallery img:hover {
+            transform: scale(1.03);
+          }
+          
+          @media (max-width: 768px) {
+            .sidebar-gallery img {
+              height: 300px;
+            }
+          }
+          .service-details .Ser-Par {
+            font-size: 1.15rem; /* Larger text */
+            font-weight: 500; /* Medium-bold for clarity */
+            line-height: 1.75; /* Comfortable spacing */
+            color: #333; /* Consistent readability */
+          }
+        </style>
+
+        <!-- ----------  HIGHLIGHT SCRIPT  ---------- -->
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const headings = document.querySelectorAll('.service-details h3');
+          
+            function highlightByHash() {
+              headings.forEach(h => h.classList.remove('active-highlight'));
+          
+              const id = location.hash.replace('#', '');
+              if (!id) return;
+          
+              const target = document.getElementById(id);
+              if (target) {
+                target.classList.add('active-highlight');
+                // Optional scroll into view with animation
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }
+          
+            // Highlight on first load
+            highlightByHash();
+          
+            // Also re-highlight on hash change
+            window.addEventListener('hashchange', highlightByHash);
+          });
+          </script>
+
+        <div class="container">
+          <div class="row gy-5">
+            <!-- ===== SIDEBAR ===== -->
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="service-box">
+                <h4>Services List</h4>
+                <div class="services-list">
+                  <a href="#RadioTypeApprovale"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Radio Type Approval</span></a
+                  >
+                  <a href="#SafetyCompliance"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Safety Compliance</span></a
+                  >
+                  <a href="#ShipmentCompliance"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Shipment Compliance</span></a
+                  >
+                  <a href="#AccountsRegistrationConsultancy"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Accounts Registration Consultancy</span></a
+                  >
+                  <a href="#RegulationsConsultancy"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Regulations Consultancy</span></a
+                  >
+                  <a href="#TechnicalTranslation"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Technical Translation</span></a
+                  >
+                  <a href="#TypeApproval"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Type Approval</span></a
+                  >
+                  <a href="#ECAS"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span
+                      >Emirates Conformity Assessment Scheme (ECAS)</span
+                    ></a
+                  >
+                  <a href="#RoHS"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Restriction of Hazardous Substances (RoHS)</span></a
+                  >
+                  <a href="#EESL"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span
+                      >Energy Efficiency Standards & Labelling (EESL)</span
+                    ></a
+                  >
+                  <a href="#G-Mark"
+                    ><i class="bi bi-arrow-right-circle"></i
+                    ><span>Gulf Conformity Mark (G-Mark)</span></a
+                  >
+                </div>
+              </div>
+
+              <div class="help-box">
+                <i class="bi bi-headset mb-2"></i>
+                <h4>Have a Question?</h4>
+                <p
+                  class="d-flex align-items-center justify-content-center mt-2 mb-1"
+                >
+                  <i class="bi bi-telephone me-2"></i
+                  ><span>+971 58 57 010 57</span>
+                </p>
+                <p class="d-flex align-items-center justify-content-center m-0">
+                  <i class="bi bi-envelope me-2"></i
+                  ><a
+                    href="mailto:Info@Certoyd.com"
+                    class="text-white text-decoration-underline"
+                    >Info@Certoyd.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="sidebar-gallery">
+                <img src="./images/services/ourServices.png" alt="Service illustration 6"/>
+                <img src="./images/services/globalServices.png" alt="Service illustration 1"/>
+                <img src="./images/services/compliantMark.png" alt="Service illustration 2" />
+                <img src="./images/services/Approved.png" alt="Service illustration 3" />
+                <img src="./images/services/ComplianceVerification.png" alt="Service illustration 4"/>
+                <img src="./images/services/ServIMG.png" alt="Service illustration 1" />
+                <img src="./images/services/saftey.png" alt="Service illustration 7"/>
+              </div>
+            </div>
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <div
+              class="col-lg-8 ps-lg-5"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <img
+                src="./images/services/globalWorld.png"
+                alt="Services banner"
+                class="img-fluid mb-4 rounded"
+                style="margin-top: 5%; width: 820px; height: 380px"
+              />
+
+              <!-- Radio Type Approval -->
+              <h3 id="RadioTypeApprovale">Radio Type Approval</h3>
+              <p class="Ser-Par">
+                Radio Type Approval is the process to use the Radio and
+                Telecommunications Terminal Equipment (“RTTE”) in the targeted
+                country by getting an authorization (Certificate) from the
+                Regulatory Telecom Authority.<br />This process involves the
+                verification of the equipment’s compliance with the relevant
+                applicable standards and requirements, and this is the main
+                point of Type Approval regime.<br />At Certoyd, we have an
+                expert team in each covered country to assist you through the
+                Telecom Authorities by obtaining the necessary approvals for
+                regulated products, all within a short time frame and at
+                competitive market price.
+              </p>
+
+              <!-- Safety Compliance -->
+              <h3 id="SafetyCompliance">Safety Compliance</h3>
+              <p class="Ser-Par">
+                It is the process of ensuring that your products adhere to the
+                highest safety standards and regulatory requirements. It’s about
+                safeguarding both people and businesses by meeting
+                industry‑specific safety protocols. For us, it means not only
+                fulfilling legal obligations but also creating a culture of
+                trust and responsibility, ensuring your products meet rigorous
+                safety standards for seamless market entry and consumer
+                confidence.<br />At Certoyd, we have an expert team in each
+                covered country to assist you through the Standardization
+                Authorities by obtaining the necessary approvals for regulated
+                products, all within a short time frame and at competitive
+                market price.
+              </p>
+
+              <!-- Shipment Compliance -->
+              <h3 id="ShipmentCompliance">Shipment Compliance</h3>
+              <p class="Ser-Par">
+                Ensures that every aspect of your product's journey meets the
+                necessary legal and regulatory requirements. It involves strict
+                adherence to customs regulations, telecom, safety standards, and
+                accurate documentation to prevent delays or penalties. For us,
+                shipment compliance means guaranteeing that your goods are
+                transported efficiently, securely, and in full compliance with
+                all relevant standards, so you can focus on growing your
+                business with confidence and peace of mind.<br />At Certoyd, we
+                have an expert team in each covered country to assist you
+                through the Standardization Authorities by obtaining the
+                necessary approvals for regulated products, all within a short
+                time frame and at competitive market price.
+              </p>
+
+              <!-- Accounts Registration Consultancy -->
+              <h3 id="AccountsRegistrationConsultancy">
+                Accounts Registration Consultancy
+              </h3>
+              <p class="Ser-Par">
+                It is a tailored service designed to help businesses streamline
+                the process of registering their accounts with the appropriate
+                authorities. Our expertise ensures full compliance with legal
+                and industry‑specific regulations, so your company can focus on
+                growth without worrying about paperwork or regulatory hurdles.
+                Whether it’s setting up financial accounts for tax purposes,
+                managing VAT registration, or meeting other compliance
+                standards, we provide personalized guidance through every
+                stage—ensuring you meet all the requirements for smooth,
+                hassle‑free registration. With our support, your business can
+                operate seamlessly and confidently in full legal alignment.
+              </p>
+
+              <!-- Regulations Consultancy -->
+              <h3 id="RegulationsConsultancy">Regulations Consultancy</h3>
+              <p class="Ser-Par">
+                Our expert guidance is designed to help your business navigate
+                the complexities of legal and industry‑specific requirements. We
+                provide in‑depth advice to ensure your products or services
+                comply with the necessary regulations, helping you avoid costly
+                mistakes and delays. Our approach is tailored to your unique
+                needs, offering actionable insights that streamline your path to
+                compliance, enhance market access, and minimize risks, so you
+                can focus on driving growth with confidence.
+              </p>
+
+              <!-- Technical Translation -->
+              <h3 id="TechnicalTranslation">Technical Translation</h3>
+              <p class="Ser-Par">
+                It is designed to meet the specific needs of your business or
+                project, offering precise and culturally sensitive translations
+                across a variety of languages and industries. Whether you're
+                translating technical content or any other specialized material,
+                we tailor our services to ensure your message is communicated
+                clearly and effectively. With a focus on accuracy,
+                confidentiality, and fast turnaround times, we help you break
+                down language barriers and connect with global audiences
+                seamlessly.
+              </p>
+
+              <!-- Type Approval -->
+              <h3 id="TypeApproval">Type Approval</h3>
+              <p class="Ser-Par">
+                Radio Type Approval is a regulatory process that ensures Radio
+                and Telecommunications Terminal Equipment (RTTE) can be legally
+                used in a particular country. This process involves obtaining a
+                certification from the country's telecom regulatory authority,
+                confirming that the equipment meets the required technical,
+                safety, and operational standards. Type Approval is crucial for
+                verifying that devices comply with national regulations and are
+                safe for use, preventing any risk to users or the integrity of
+                local telecommunications networks. Without this approval, RTTE
+                cannot be legally imported, sold, or used in the market.
+              </p>
+
+              <!-- Why important list -->
+              <h3>Why is Radio Type Approval Important?</h3>
+              <ul>
+                <li class="Ser-Par">
+                  • User Safety and Health: Radio Type Approval ensures that
+                  devices are designed and manufactured in a way that minimizes
+                  risks to users, protecting them from potential hazards like
+                  electrical shocks, harmful radiation, or other safety
+                  concerns.
+                </li>
+                <li class="Ser-Par">
+                  • Optimal Use of Radio Frequencies:Every country has limited
+                  radio spectrum available for communication, and improper use
+                  can cause interference. Type Approval ensures that RTTE
+                  operates within assigned frequency bands, optimizing radio
+                  spectrum usage and reducing the risk of harmful interference
+                  with other devices or services, such as emergency
+                  communications.
+                </li>
+                <li class="Ser-Par">
+                  • Seamless Connectivity with Telecom Networks:RTTE needs to
+                  operate effectively within the framework of the country’s
+                  telecom infrastructure. Type Approval guarantees that devices
+                  are compatible with local networks, ensuring high-quality
+                  connections, minimal dropped calls, and efficient data
+                  transmission.
+                </li>
+                <li class="Ser-Par">
+                  • Electromagnetic Compatibility (EMC):Radio devices can emit
+                  electromagnetic signals that might interfere with nearby
+                  electronic devices. Type Approval ensures that RTTE meets
+                  Electromagnetic Compatibility (EMC) standards, ensuring that
+                  these emissions do not disrupt or impair the operation of
+                  other critical systems, such as medical equipment or air
+                  traffic control systems.
+                </li>
+              </ul>
+              <p class="Ser-Par">
+                Beyond these essential factors, Radio Type Approval fosters
+                confidence among consumers and operators, ensuring that products
+                are safe, effective, and reliable. It supports the growth of the
+                telecommunication industry by encouraging compliance with
+                international standards, enhancing network performance, and
+                promoting consumer protection. Moreover, by controlling which
+                devices enter the market, the approval process helps prevent
+                substandard or unsafe products from disrupting the local market
+                or endangering public infrastructure. Through this framework,
+                countries can ensure their telecom networks are resilient, their
+                consumers are protected, and their communications systems
+                operate smoothly.
+              </p>
+
+              <!-- ECAS -->
+              <h3 id="ECAS">Emirates Conformity Assessment Scheme (ECAS)</h3>
+              <p class="Ser-Par">
+                ECAS is a comprehensive product certification system designed to
+                ensure that electrical equipment entering the UAE market
+                complies with the relevant UAE standards or internationally
+                recognized standards approved by the Ministry of Industry and
+                Advanced Technology (MoIAT). The scheme plays a crucial role in
+                maintaining the quality, safety, and reliability of products,
+                ensuring that they meet the highest technical and performance
+                benchmarks. The certification process begins with a thorough
+                evaluation of the product against both local and global
+                standards, including those set by the International
+                Electrotechnical Commission (IEC) and applicable UAE
+                regulations. Once the product meets these standards, it is
+                registered in the ECAS system, and an ECAS Certificate of
+                Conformity is issued, confirming the product’s compliance.
+                Before the product can be introduced into the UAE market, it is
+                required to display the ECAS Mark, signifying that it has passed
+                all necessary assessments and meets the prescribed criteria. The
+                mark must be affixed according to the latest ECAS Mark Usage
+                Policy, which ensures that the mark is applied correctly and
+                consistently, enhancing consumer confidence and regulatory
+                transparency. This certification process is not only a key
+                mechanism for ensuring product safety and quality but also
+                serves as a gateway for manufacturers and importers to
+                demonstrate their commitment to regulatory compliance,
+                facilitating smoother market access. Through ECAS, the UAE
+                strengthens consumer protection, promotes market integrity, and
+                supports its broader objectives for innovation, sustainability,
+                and quality assurance in the marketplace.
+              </p>
+
+              <!-- RoHS -->
+              <h3 id="RoHS">Restriction of Hazardous Substances (RoHS)</h3>
+              <p class="Ser-Par">
+                RoHS (Restriction of Hazardous Substances) is a regulation
+                enforced by the Ministry of Industry and Advanced Technology
+                (MoIAT) in the United Arab Emirates. It is designed to restrict
+                the use of certain hazardous substances in electrical and
+                electronic equipment (EEE), aiming to protect human health and
+                the environment by reducing the presence of harmful materials in
+                products that are manufactured, imported, or sold in the UAE.
+                RoHS regulation requires manufacturers, importers, and
+                distributors to ensure that their products comply with the
+                substance restrictions, and they must the needed documentation
+                to confirm that the products meet the requirements before they
+                can be placed on the market. This regulation advances the UAE’s
+                environmental objectives by minimizing the ecological impact of
+                e-waste, fostering the development of safer, more sustainable
+                electronic products, and ensuring consumers can make informed
+                decisions for a healthier, cleaner environment. It encourages
+                manufacturers to adopt eco-friendly practices, aligns with
+                international sustainability standards, and supports the UAE’s
+                broader vision for a green economy, all while safeguarding the
+                well-being of both people and the planet for generations to
+                come.
+              </p>
+
+              <!-- EESL -->
+              <h3 id="EESL">
+                Energy Efficiency Standards and Labelling (EESL)
+              </h3>
+              <p class="Ser-Par">
+                EESL is a system that provides a clear indication of a product's
+                energy efficiency through a star rating, with the number of
+                stars representing its level of energy consumption. The star
+                rating ranges from 1 to a maximum of 5 stars, where 5 stars
+                signify the highest level of energy efficiency and 1 star the
+                least efficient. This classification helps consumers make
+                informed purchasing decisions, as higher-rated products
+                typically result in lower energy costs and environmental impact.
+                The conformity assessment process for energy efficiency involves
+                verifying that products meet specific regulatory requirements
+                and ensuring the accurate calculation of either the Energy
+                Efficiency Ratio (EER) or the Energy Efficiency Index (EEI). The
+                EER or EEI is a numerical value that represents a product's
+                energy performance. Depending on the result of this calculation,
+                a product is assigned a corresponding star rating, with 5 stars
+                indicating superior energy efficiency. This process also
+                confirms that the product complies with the established energy
+                performance standards. Once a product meets these requirements,
+                it is granted an ECAS Certificate of Conformity, which serves as
+                official confirmation that it complies with energy efficiency
+                regulations. This system not only helps consumers choose more
+                efficient products but also promotes energy conservation and
+                sustainability on a broader scale.
+              </p>
+
+              <!-- G-Mark -->
+              <h3 id="G-Mark">Gulf Conformity Mark (G-Mark)</h3>
+              <p class="Ser-Par">
+                Gulf Conformity Mark (G-Mark) is a mandatory certification mark
+                that indicates a product’s compliance with the technical
+                regulations and safety standards required by the GCC
+                Standardization Organization (GSO) countries, specifically the
+                UAE, Saudi Arabia, Qatar, Oman, Bahrain, and Kuwait. This mark
+                ensures that products meet the established health, safety, and
+                environmental requirements, allowing them to be legally sold and
+                distributed in the GCC market. It applies to a wide range of
+                products, including some electrical appliances, and toys, among
+                others. The G-Mark process involves rigorous testing and
+                verification by accredited bodies to ensure that products adhere
+                to the relevant GCC standards. The certification promotes
+                consumer safety, supports market transparency, and enhances
+                confidence in the quality of products within the region. By
+                ensuring that products are safe and compliant with local
+                regulations, the G-Mark contributes to the protection of public
+                health and environmental sustainability across the GCC.
+              </p>
+            </div>
+            <!-- /main -->
+          </div>
+          <!-- /row -->
+        </div>
+        <!-- /container -->
+      </section>
+
+      <!-- /Service Details Section -->
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+      <div class="container">
+        <h3 class="sitename">CERTOYD</h3>
+        <p>Compliance Assured</p>
+        <div class="social-links d-flex justify-content-center">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="container">
+          <div class="copyright">
+            <span>Copyright</span> <strong class="px-1 sitename">Certoyd</strong> <span>L.L.C All Rights Reserved 2025</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="float-btn scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- WhatsApp -->
+    <a
+      href="https://wa.me/1234567890"
+      target="_blank"
+      class="float-btn whatsapp d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- WeChat -->
+    <a
+      href="#"
+      class="float-btn wechat d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-wechat"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <div
+      class="modal fade"
+      id="adminModal"
+      tabindex="-1"
+      aria-labelledby="adminModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="adminModalLabel">Admin Access</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input
+              type="password"
+              id="adminPasskey"
+              class="form-control"
+              placeholder="Enter admin passkey"
+            />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="validateAdminKey()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function showToast(message, isSuccess) {
+        const toastEl = document.getElementById("adminToast");
+        const toastBody = toastEl.querySelector(".toast-body");
+
+        toastBody.textContent = message;
+        toastEl.classList.remove("text-bg-success", "text-bg-danger");
+        toastEl.classList.add(isSuccess ? "text-bg-success" : "text-bg-danger");
+
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+      }
+
+      function removeModalBackdropManually() {
+        document
+          .querySelectorAll(".modal-backdrop")
+          .forEach((el) => el.remove());
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      }
+
+      let attempts = 0;
+      const maxAttempts = 3;
+      const correctPasskey = "X7$3j!qLp9@Vz#Tw"; // Strong complex passkey
+
+      function validateAdminKey() {
+        if (attempts >= maxAttempts) {
+          showToast("Too many failed attempts. Try again later.", false);
+          return;
+        }
+
+        const inputKey = document.getElementById("adminPasskey").value;
+        const modalEl = document.getElementById("adminModal");
+        const modal = bootstrap.Modal.getInstance(modalEl);
+
+        if (inputKey === correctPasskey) {
+          localStorage.setItem("userRole", "admin");
+          modal.hide();
+
+          const addBlogBtn = document.getElementById("addBlogBtn");
+          if (addBlogBtn) addBlogBtn.style.display = "flex";
+
+          modalEl.addEventListener(
+            "hidden.bs.modal",
+            () => {
+              removeModalBackdropManually();
+              showToast("Access granted. You are now an admin.", true);
+            },
+            { once: true }
+          );
+        } else {
+          attempts++;
+          showToast(
+            `Wrong passkey. You have ${maxAttempts - attempts} attempts left.`,
+            false
+          );
+        }
+      }
+    </script>
+    <div
+      class="toast-container position-fixed bottom-0 end-0 p-3"
+      style="z-index: 1056"
+    >
+      <div
+        id="adminToast"
+        class="toast align-items-center"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">This is a toast message</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

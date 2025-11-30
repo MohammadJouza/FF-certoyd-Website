@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog – Certoyd</title>
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link href="assets/img/Certoyd-icon.png" rel="icon" />
+  <link href="assets/img/Certoyd-icon.png" rel="Certoyd-icon" />
+
+  <style>
+    #header {
+      background: #001E4F;
+      transition: background 0.3s;
+    }
+
+    #addBlogBtn {
+      position: fixed;
+      bottom:1rem;
+      right: 5.5rem;
+      width: 3.6rem;
+      height: 3.6rem;
+      font-size: 2rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+      border-radius: 50%;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .float-btn {
+      position: fixed;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1040;
+      transition: opacity 0.3s ease;
+    }
+
+    #scroll-top {
+      background: #0d6efd;
+      bottom: 4rem;
+      right: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #scroll-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      bottom: 0.5rem;
+      right: 1.25rem;
+    }
+
+    .wechat {
+      background: #55c155;
+      bottom: 1.25rem;
+      left: 1.25rem;
+    }
+
+    #create-drop-zone {
+      border: 2px dashed #adb5bd;
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    #create-drop-zone.dragover {
+      background: #f8f9fa;
+      color: #0d6efd;
+    }
+
+    #create-preview-image {
+      max-width: 100%;
+      max-height: 230px;
+      border-radius: 6px;
+      display: none;
+      margin-top: 8px;
+    }
+
+    .blog-card-img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body class="blog-page">
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex justify-content-between align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center"><img src="./images/Logo.png" alt="Certoyd" /></a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="./index.html#hero">Home</a></li>
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#services">Services</a></li>
+          <li><a href="./index.html#Regions">Regions</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><i class="bi bi-person-lock claim-admin" style="font-size: 1.8rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#adminModal"></i></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-title dark-background">
+      <div class="container position-relative">
+        <h1>Blog</h1>
+        <p>Explore our blog for insights and updates.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Blog</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <button id="addBlogBtn" data-bs-toggle="modal" data-bs-target="#createPostModal">+</button>
+    <section id="blog-posts" class="container py-5"></section>
+  </main>
+
+  <div class="modal fade" id="createPostModal" tabindex="-1">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Create Blog Post</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input id="postTitle" class="form-control mb-2" placeholder="Title" />
+        <input id="postCategory" class="form-control mb-2" placeholder="Category" />
+        <textarea id="postContent" class="form-control mb-2" placeholder="Content" rows="4"></textarea>
+        <input id="postLocation" class="form-control mb-2" placeholder="Location" />
+        <div id="create-drop-zone" class="mb-3">
+          <p class="small text-muted mb-1">Drag & drop image here or click to upload</p>
+          <img id="create-preview-image" alt="preview" />
+          <input type="file" id="createImageFile" accept="image/*" hidden />
+        </div>
+      </div>
+      <div class="modal-footer"><button id="submit-post" class="btn btn-success">Post</button></div>
+    </div></div>
+  </div>
+
+  <div class="modal fade" id="formErrorModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header text-bg-danger"><h5 class="modal-title">Form Incomplete</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body"><p>Please fill all fields and upload an image.</p></div>
+    </div></div>
+  </div>
+
+  <a href="#" id="scroll-top" class="float-btn"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="https://wa.me/1234567890" target="_blank" class="float-btn whatsapp"><i class="bi bi-whatsapp"></i></a>
+  <a href="#" class="float-btn wechat"><i class="bi bi-wechat"></i></a>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <div
+  class="modal fade"
+  id="adminModal"
+  tabindex="-1"
+  aria-labelledby="adminModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adminModalLabel">Admin Access</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="password"
+          id="adminPasskey"
+          class="form-control"
+          placeholder="Enter admin passkey"
+        />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="validateAdminKey()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    const dz = document.getElementById("create-drop-zone"),
+          fileIn = document.getElementById("createImageFile"),
+          prevImg = document.getElementById("create-preview-image");
+
+    let imgBase64 = "";
+    dz.onclick = () => fileIn.click();
+    ["dragover", "dragleave"].forEach(evt => {
+      dz.addEventListener(evt, e => {
+        e.preventDefault();
+        dz.classList.toggle("dragover", evt === "dragover");
+      });
+    });
+    dz.addEventListener("drop", e => {
+      e.preventDefault();
+      handleFile(e.dataTransfer.files[0]);
+    });
+    fileIn.addEventListener("change", () => handleFile(fileIn.files[0]));
+    function handleFile(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        imgBase64 = e.target.result;
+        prevImg.src = imgBase64;
+        prevImg.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const blogPosts = JSON.parse(localStorage.getItem("Blogs")) || [];
+    const section = document.getElementById("blog-posts");
+    function renderBlogs() {
+      section.innerHTML = "";
+      const row = document.createElement("div"); row.className = "row";
+      blogPosts.forEach(p => {
+        const col = document.createElement("div");
+        col.className = "col-12 col-sm-6 col-lg-4 mb-4";
+        col.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <img src="${p.image}" class="card-img-top blog-card-img">
+            <div class="card-body">
+              <p class="text-muted mb-1">${p.category}</p>
+              <a href="blog-details.html?id=${p.id}" class="fw-bold text-decoration-none" style="color:#0d6efd">${p.title}</a>
+              <p class="small text-muted mb-0">${p.date}</p>
+            </div>
+          </div>`;
+        col.querySelector("a").onclick = () => localStorage.setItem("CurrentId", p.id);
+        row.appendChild(col);
+      });
+      section.appendChild(row);
+    }
+    renderBlogs();
+
+    document.getElementById("submit-post").onclick = () => {
+      const title = postTitle.value.trim(),
+            cat = postCategory.value.trim(),
+            cont = postContent.value.trim(),
+            loc = postLocation.value.trim();
+      if (!title || !cat || !cont || !loc || !imgBase64) {
+        new bootstrap.Modal(document.getElementById("formErrorModal")).show();
+        return;
+      }
+      blogPosts.unshift({
+        id: Date.now(), title, category: cat, content: cont, location: loc, image: imgBase64,
+        date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+      });
+      localStorage.setItem("Blogs", JSON.stringify(blogPosts));
+      renderBlogs();
+      ["postTitle", "postCategory", "postContent", "postLocation"].forEach(id => document.getElementById(id).value = "");
+      imgBase64 = "";
+      prevImg.style.display = "none";
+
+      const modalEl = document.getElementById("createPostModal");
+      const modalInstance = bootstrap.Modal.getInstance(modalEl);
+      modalInstance.hide();
+
+      document.querySelector(".modal-backdrop")?.remove(); // clean leftover
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = ""; document.body.style.paddingRight = "";
+    };
+
+    window.addEventListener("scroll", () => {
+      document.getElementById("header").classList.toggle("shadow-sm", window.scrollY > 10);
+      document.getElementById("scroll-top").classList.toggle("show", window.scrollY > 100);
+    });
+
+    document.getElementById("scroll-top").onclick = e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (localStorage.getItem("userRole") === "admin") {
+      document.getElementById("addBlogBtn").style.display = "flex";
+    }
+
+    AOS.init();
+    function showToast(message, isSuccess) {
+    const toastEl = document.getElementById("adminToast");
+    const toastBody = toastEl.querySelector(".toast-body");
+
+    toastBody.textContent = message;
+    toastEl.classList.remove("text-bg-success", "text-bg-danger");
+    toastEl.classList.add(isSuccess ? "text-bg-success" : "text-bg-danger");
+
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+  }
+
+  function removeModalBackdropManually() {
+    document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+
+  let attempts = 0;
+      const maxAttempts = 3;
+      const correctPasskey = "X7$3j!qLp9@Vz#Tw"; // Strong complex passkey
+
+      function validateAdminKey() {
+        if (attempts >= maxAttempts) {
+          showToast("Too many failed attempts. Try again later.", false);
+          return;
+        }
+
+        const inputKey = document.getElementById("adminPasskey").value;
+        const modalEl = document.getElementById("adminModal");
+        const modal = bootstrap.Modal.getInstance(modalEl);
+
+        if (inputKey === correctPasskey) {
+          localStorage.setItem("userRole", "admin");
+          modal.hide();
+
+          const addBlogBtn = document.getElementById("addBlogBtn");
+          if (addBlogBtn) addBlogBtn.style.display = "flex";
+
+          modalEl.addEventListener(
+            "hidden.bs.modal",
+            () => {
+              removeModalBackdropManually();
+              showToast("Access granted. You are now an admin.", true);
+            },
+            { once: true }
+          );
+        } else {
+          attempts++;
+          showToast(
+            `Wrong passkey. You have ${maxAttempts - attempts} attempts left.`,
+            false
+          );
+        }
+      }
+  </script>
+  <div
+  class="toast-container position-fixed bottom-0 end-0 p-3"
+  style="z-index: 1056;"
+>
+  <div
+    id="adminToast"
+    class="toast align-items-center"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="d-flex">
+      <div class="toast-body">This is a toast message</div>
+      <button
+        type="button"
+        class="btn-close me-2 m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

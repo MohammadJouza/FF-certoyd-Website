@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog Details – Certoyd</title>
+    <!-- Favicons -->
+  <link href="assets/img/Certoyd-icon.png" rel="icon" />
+  <link href="assets/img/Certoyd-icon.png" rel="Certoyd-icon" />
+
+    <!-- Vendor CSS -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      body.blog-details-page main {
+        padding-top: 120px;
+      }
+
+      /* Blog Image */
+      #blog-image {
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-bottom: 1.5rem;
+      }
+
+      #blog-content p {
+        line-height: 1.6;
+        font-size: 1.1rem;
+      }
+
+      .blog-admin-actions .btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        border-width: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+      }
+
+      .blog-admin-actions .btn:hover {
+        transform: scale(1.05);
+      }
+
+      #drop-zone {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #drop-zone:hover {
+        background-color: #f8f9fa;
+      }
+
+      #preview-image {
+        max-width: 100%;
+        max-height: 250px;
+        margin-top: 10px;
+        display: none;
+        border-radius: 6px;
+      }
+
+      #header {
+        background: #001E4F;
+        padding: 15px 0;
+      }
+
+      #navmenu ul {
+        display: flex;
+        list-style: none;
+        gap: 26px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      #navmenu a {
+        color: #fff;
+        font-weight: 500;
+        padding: 6px 12px;
+        text-decoration: none;
+      }
+
+      #navmenu a.active {
+        background-color: #0d6efd;
+        color: #fff;
+        border-radius: 25px;
+      }
+      .blog-admin-actions .btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+        border-width: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+      }
+      .blog-admin-actions .btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="blog-details-page">
+    <!-- HEADER -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl d-flex justify-content-between align-items-center"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="./images/Logo.png" alt="Certoyd" />
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="./index.html#hero">Home</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./index.html#Regions">Regions</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+            <li>
+              <i
+                class="bi bi-person-lock claim-admin"
+                style="font-size: 1.8rem; cursor: pointer"
+                data-bs-toggle="modal"
+                data-bs-target="#adminModal"
+              ></i>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container main">
+      <div class="row">
+        <div class="col-lg-8">
+          <img id="blog-image" src="" alt="Blog image" />
+          <h2 id="blog-title" class="mb-2"></h2>
+
+          <div id="blog-content"></div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card p-3 shadow-sm sticky-top" style="top: 80px">
+            <h5 class="mb-3">Blog Info</h5>
+            <ul class="list-unstyled">
+              <li><strong>Date:</strong> <span id="blog-date"></span></li>
+              <li>
+                <strong>Category:</strong> <span id="blog-category"></span>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="adminControls"
+            class="blog-admin-actions d-none text-center mb-4"
+            style="margin-top: 1.5rem"
+          >
+            <button
+              id="editBtn"
+              class="btn btn-outline-primary rounded-circle me-2"
+              title="Edit"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button
+              id="deleteBtn"
+              class="btn btn-outline-danger rounded-circle"
+              title="Delete"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editBlogModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Blog</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input id="editTitle" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Content</label>
+              <textarea
+                id="editContent"
+                rows="6"
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date</label>
+              <input id="editDate" type="date" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Image</label>
+              <div id="drop-zone" class="text-center">
+                <p class="text-muted mb-2">Drag & Drop Image or Click</p>
+                <img id="preview-image" src="" />
+                <input type="file" id="editImageFile" accept="image/*" hidden />
+              </div>
+            </div>
+            <button id="saveEdit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+          <div class="modal-header bg-white">
+            <h5 class="modal-title">Confirm Delete</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-center">
+            <p class="text-muted">Are you sure you want to delete this blog?</p>
+            <button id="confirmDelete" class="btn btn-danger">
+              Yes, Delete
+            </button>
+            <button
+              class="btn btn-light text-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br><br><br><br><br>
+    <!-- Admin Modal -->
+    <div class="modal fade" id="adminModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Admin Access</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input
+              id="adminPasskey"
+              type="password"
+              class="form-control"
+              placeholder="Enter admin passkey"
+            />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="validateAdminKey()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      class="toast-container position-fixed bottom-0 end-0 p-3"
+      style="z-index: 1056"
+    >
+      <div
+        id="adminToast"
+        class="toast align-items-center border-0 text-bg-light"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body"></div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script>
+      const id = localStorage.getItem("CurrentId");
+      const blogs = JSON.parse(localStorage.getItem("Blogs")) || [];
+      const blog = blogs.find((b) => b.id == id);
+      if (!blog) location = "blog.html";
+
+      const previewImg = document.getElementById("preview-image");
+
+      document.getElementById("blog-title").textContent = blog.title;
+      document.getElementById("blog-image").src = blog.image;
+      document.getElementById(
+        "blog-content"
+      ).innerHTML = `<p>${blog.content}</p>`;
+      document.getElementById("blog-date").textContent = blog.date;
+      document.getElementById("blog-category").textContent = blog.category;
+
+      if (localStorage.getItem("userRole") === "admin") {
+        document.getElementById("adminControls").classList.remove("d-none");
+
+        document.getElementById("editBtn").onclick = () => {
+          document.getElementById("editTitle").value = blog.title;
+          document.getElementById("editContent").value = blog.content;
+          previewImg.src = blog.image;
+          previewImg.style.display = "block";
+          previewImg.dataset.base64 = blog.image;
+          const currentDate = new Date(blog.date);
+          const formatted = currentDate.toISOString().split("T")[0];
+          document.getElementById("editDate").value = formatted;
+          new bootstrap.Modal(document.getElementById("editBlogModal")).show();
+        };
+
+        document.getElementById("saveEdit").onclick = () => {
+          blog.title = document.getElementById("editTitle").value.trim();
+          blog.content = document.getElementById("editContent").value.trim();
+          blog.image = previewImg.dataset.base64 || blog.image;
+          const newDate = document.getElementById("editDate").value;
+          if (newDate) {
+            blog.date = new Date(newDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            });
+          }
+          localStorage.setItem("Blogs", JSON.stringify(blogs));
+          location.reload();
+        };
+
+        document.getElementById("deleteBtn").onclick = () => {
+          new bootstrap.Modal(
+            document.getElementById("confirmDeleteModal")
+          ).show();
+        };
+
+        document.getElementById("confirmDelete").onclick = () => {
+          const updated = blogs.filter((b) => b.id != id);
+          localStorage.setItem("Blogs", JSON.stringify(updated));
+          localStorage.removeItem("CurrentId");
+          document.querySelector("#confirmDeleteModal .btn-close").click();
+          showToast("Blog deleted successfully.");
+          setTimeout(() => (location = "blog.html"), 1500);
+        };
+      }
+
+      function showToast(msg) {
+        const toastEl = document.getElementById("adminToast");
+        toastEl.querySelector(".toast-body").textContent = msg;
+        new bootstrap.Toast(toastEl).show();
+      }
+
+      function validateAdminKey() {
+        const key = document.getElementById("adminPasskey").value;
+        const correct = "X7$3j!qLp9@Vz#Tw";
+        if (key === correct) {
+          localStorage.setItem("userRole", "admin");
+          bootstrap.Modal.getInstance(
+            document.getElementById("adminModal")
+          ).hide();
+          showToast("Access granted. You are admin.");
+        } else {
+          showToast("Wrong passkey.");
+        }
+      }
+
+      // Drag and Drop
+      const dropZone = document.getElementById("drop-zone");
+      const fileInput = document.getElementById("editImageFile");
+
+      dropZone.addEventListener("click", () => fileInput.click());
+      dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("bg-light");
+      });
+      dropZone.addEventListener("dragleave", () => {
+        dropZone.classList.remove("bg-light");
+      });
+      dropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("bg-light");
+        const file = e.dataTransfer.files[0];
+        if (file) handleImagePreview(file);
+      });
+      fileInput.addEventListener("change", () => {
+        if (fileInput.files[0]) handleImagePreview(fileInput.files[0]);
+      });
+
+      function handleImagePreview(file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewImg.src = e.target.result;
+          previewImg.style.display = "block";
+          previewImg.dataset.base64 = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      AOS.init();
+    </script>
+
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">CERTOYD</h3>
+      <p>Compliance Assured</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Certoyd</strong> <span>L.L.C All Rights Reserved 2025</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a
+  href="#"
+  id="scroll-top"
+  class="float-btn scroll-top scroll-left d-flex align-items-center justify-content-center"
+>
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!-- WhatsApp - stays on right -->
+<a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  class="float-btn whatsapp d-flex align-items-center justify-content-center"
+>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- WeChat - move to right -->
+<a
+  href="#"
+  class="float-btn wechat float-right d-flex align-items-center justify-content-center"
+>
+  <i class="bi bi-wechat"></i>
+</a>
+
+      
+  </body>
+</html>
